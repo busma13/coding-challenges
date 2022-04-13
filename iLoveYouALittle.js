@@ -16,9 +16,7 @@ Your goal in this kata is to determine which phrase the girls would say for a fl
 
 function howMuchILoveYou(nbPetals) {
     const arr = ['I love you', 'a little', 'a lot', 'passionately', 'madly', 'not at all'];
-    if (nbPetals > 6) {
-        nbPetals %= 6 
-    }
+    nbPetals %= 6; 
     if (nbPetals === 0) {
         nbPetals = 6; 
     }
