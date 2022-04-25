@@ -10,3 +10,7 @@ String.prototype.digit = function(s) {
         return /\d/.test(this);
     }
 };
+
+
+//one line
+// return /^\d$/.test(this);
