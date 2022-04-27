@@ -6,5 +6,5 @@ You can assume the input will always be a number.
 */
 
 function validateCode (code) {
-    return /[123]/.test(code[0]);
+    return /^[123]/.test(code);
 }
