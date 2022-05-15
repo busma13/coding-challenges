@@ -10,10 +10,11 @@ PREP
 Parameters: A string from 1 to 10 characters, never empty, no special characters or numbers.
 Returns: A string with an uppercase first letter.
 Examples: capitalizeWord('word') // Word, capitalizeWord('i') // I
-Pseudo code:
+Pseudo code: see below
 */
 
 function capitalizeWord(word) {
+    // Return a new string consisting of the first letter of the old string capitalized followed by a copy of the rest of the original string. 
     return word[0].toUpperCase() + word.slice(1);
 }
 
