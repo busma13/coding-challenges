@@ -43,6 +43,8 @@ m == potions.length
  * @param {number} success
  * @return {number[]}
  */
+
+// Does not work, ran out of time
 var successfulPairs = function(spells, potions, success) {
     let pairs = [];
     potions = potions.sort((a,b) => a - b);
@@ -84,12 +86,14 @@ var successfulPairs = function(spells, potions, success) {
 };
 
 console.log(successfulPairs([5,1,3], [1,2,3,4,5], 7));
-// console.log(successfulPairs([3,1,2], [8,5,8], 16));
+console.log(successfulPairs([3,1,2], [8,5,8], 16));
 
-/*for (let j = 0; j < potions.length; j++) {
-            if (spells[i] * potions[j] >= success) {
-                count = potions.length - j;
-                break;
-            }
-        }
-        */
+
+/*  This worked, but was too slow
+for (let j = 0; j < potions.length; j++) {
+    if (spells[i] * potions[j] >= success) {
+        count = potions.length - j;
+        break;
+    }
+}
+*/
