@@ -1,4 +1,4 @@
-/* 6101. Check if Matrix Is X-Matrix
+/* 2319. Check if Matrix Is X-Matrix
 
 A square matrix is said to be an X-Matrix if both of the following conditions hold:
 
