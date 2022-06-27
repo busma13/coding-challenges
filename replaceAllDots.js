@@ -9,6 +9,7 @@ Fix the bug so we can all go home early.
 Notes
 
 String str will never be null.
+
 Parameters: a string.
 Returns: a string with dashes instead of dots.
 Examples: replaceDots("one.two.three"); //"one-two-three"
