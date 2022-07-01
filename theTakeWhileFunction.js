@@ -21,7 +21,7 @@ Examples: function isOdd(num) {
           }
           var seq = [1,5,111,1111,2,4,6,4,5];
 
-          takeWhile(seq, isOdd); //1,5,111,1111]
+          takeWhile(seq, isOdd); //[1,5,111,1111]
 Pseudo code: Create a new empty array.
              Loop through the values array. If function(value) is true add value to the new array. If function(value) is false stop the loop.
              Return the new array. 
