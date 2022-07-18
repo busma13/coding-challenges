@@ -129,12 +129,12 @@ function  closest(strng) {
             return a[0] - b[0]
         }
     });
-    console.log(subarraysArray);
+        console.log(subarraysArray);
     
     weightArray.sort((a,b) => a - b)
     let weightDiff = Infinity;
     let index = 0;
-    for (let i = 1; i <= weightArray.length; i++) {
+        for (let i = 1; i <= weightArray.length; i++) {
         if (weightArray[i] - weightArray[i - 1] < weightDiff) {
             index = i - 1;
             weightDiff = weightArray[i] - weightArray[i - 1];
