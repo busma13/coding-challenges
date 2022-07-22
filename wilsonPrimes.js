@@ -25,8 +25,8 @@ function amIWilson(p) {
 }
 
 /* 
-    The only known WIlson primes are 5, 13, and 563.
-    I would need to use BigInt to factor 562.  Right now it returns infinity.
+The only known Wilson primes are 5, 13, and 563.
+I would need to use BigInt to factor 562.  Right now it returns infinity.
 */
 
 // function amIWilson(p) {
