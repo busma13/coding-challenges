@@ -33,8 +33,15 @@ Constraints:
 
 1 <= password.length <= 100
 password consists of letters, digits, and special characters: "!@#$%^&*()-+".
-*/
 
+
+PREP
+Parameters: A string that consists of letters, digits, and special characters: "!@#$%^&*()-+"
+Returns: boolean - true or false
+Examples: see above
+Pseudo code: Create a method for each condition that must be met for the password to be considered strong.  Run each method. If any method returns false, then return false.  Otherwise return true.
+Methods: longEnough, oneLowercase, oneUppercase, oneSpecial, noAdjacent.
+*/
 /**
  * @param {string} password
  * @return {boolean}
@@ -50,7 +57,7 @@ var strongPasswordCheckerII = function(password) {
     if (password.length < 8) {
         return false;
     }
-    arr.forEach((c,i)  => {
+    arr.forEach((c,i)  => {//argeqne32546
         if ('abcdefghijklmnopqrstuvwxyz'.includes(c)) {
             lower = true;
         }
