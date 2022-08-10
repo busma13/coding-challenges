@@ -18,12 +18,12 @@ Pseudo code: First find out if most items are odd or even. Compare the first num
 
 function findOutlier(integers){
     let oultierMod;
-    if (integers[0] % 2 === integers[1] % 2) {
+    if (Math.abs(integers[0]) % 2 === Math.abs(integers[1]) % 2) {
         oultierMod = integers[0] % 2 === 0 ? 1 : 0;
         console.log(oultierMod)
         return integers.find(int => Math.abs(int % 2) === oultierMod);
     } else {
-        if (integers[0] % 2 === integers[2] % 2) {
+        if (Math.abs(integers[0]) % 2 === Math.abs(integers[2]) % 2) {
             return integers[1];
         } else {
             return integers[0];
@@ -31,8 +31,8 @@ function findOutlier(integers){
     }
 }
 
-// console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
-// console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]));
-// console.log(findOutlier([2, 5, 0]));
-// console.log(findOutlier([161, 3, 1719, 19, 110, 13, -21]));
+console.log(findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]));
+console.log(findOutlier([160, 3, 1719, 19, 11, 13, -21]));
+console.log(findOutlier([2, 5, 0]));
+console.log(findOutlier([161, 3, 1719, 19, 110, 13, -21]));
 console.log(findOutlier([28439390,-186344840,-111852251,-148111156,124175064,177218760,-97757918,-116634650,54290948,-180363436,146871490,186190974,116429480,-144927254,-180818448]));
