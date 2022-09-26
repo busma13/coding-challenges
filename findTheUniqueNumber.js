@@ -27,3 +27,4 @@ console.log(findUniq([ 1, 1, 1, 2, 1, 1 ]));
 console.log(findUniq([ 1, 1, 2, 1, 1 ]));
 console.log(findUniq([ 3, 10, 3, 3, 3 ]));
   
+// return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
