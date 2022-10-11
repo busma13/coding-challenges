@@ -59,4 +59,6 @@ function swapCharacters(str) {
     return str.split('').map(c => c in pairs ? pairs[c] : c).join('')
 }
 
-console.log(swapCharacters("PR0-T1P #hqB: 1T'5 N1C3 T0 5AY H3770." ))
+// console.log(swapCharacters("PR0-T1P #hqB: 1T'5 N1C3 T0 5AY H3770." ))
+
+module.exports = swapCharacters

@@ -27,6 +27,8 @@ function removeDecoys(str, n) {
     return str.split('').filter((ch, i) => (i+1) % n !== 0).join('')
 }
 
-console.log(removeDecoys("Thies its H alltowe!en!? Th#is Tis GHalolowmeen$!", 4))
+// console.log(removeDecoys("Thies its H alltowe!en!? Th#is Tis GHalolowmeen$!", 4))
 
-console.log(removeDecoys("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.", 5))
+// console.log(removeDecoys("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.", 5))
+
+module.exports = removeDecoys

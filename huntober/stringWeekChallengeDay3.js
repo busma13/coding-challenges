@@ -27,4 +27,6 @@ function keyCharReplacement(msg, key) {
     return msg.split('').map(ch => key.includes(ch) ? ' ' : ch).join('')
 }
 
-console.log(keyCharReplacement('AyouEcould!thinkKthisAisYhard_toYreadKbeforeYreplacingEthe_keyYcharacters', 'A_KEY!'))
+// console.log(keyCharReplacement('AyouEcould!thinkKthisAisYhard_toYreadKbeforeYreplacingEthe_keyYcharacters', 'A_KEY!'))
+
+module.exports = keyCharReplacement
