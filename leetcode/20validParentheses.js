@@ -1,9 +1,6 @@
 //input - a string containing only (){}[].
 //output true or false
 
-//break into array
-//loop through array
-
 /**
  * @param {string} s
  * @return {boolean}
@@ -27,7 +24,6 @@ var isValid = function(s) {
             }
         }
     } 
-    // if (s[0] != matches[s[s.length - 1]]) return false
     return true
 };
 
