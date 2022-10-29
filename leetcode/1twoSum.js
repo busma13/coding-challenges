@@ -38,11 +38,23 @@ Follow-up: Can you come up with an algorithm that is less than O(n2) time comple
 //Input array of numbers, int, at least 2. Target number, int 
 //Return array of numbers - index that equals target. Only 1 solution.
 
-function twoSum(nums, target) {
+//brute force
+function twoSumBrute(nums, target) {
     for (let i=0; i < nums.length; i++) {
         for (let k=i+1; k < nums.length; k++) {
             if (nums[i] + nums[k] === target) return [i,k]
         }
+    }
+}
+
+function twoSum(nums, target) {
+    let diffsList = {}
+    for (let i = 0; i < nums.length; i++) {
+        let diff = target - nums[i]
+        if (diffsList[diff] != null) {
+            return [diffsList[diff], i]
+        }
+        diffsList[nums[i]] = i
     }
 }
 
