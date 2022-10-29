@@ -19,23 +19,42 @@ Examples: duplicateEncode("word");//'((((', duplicateEncode("Success");//')())()
 Pseudo code: Create an empty test string and empty result string. Convert input string to lowercase.  Loop through each character of the input string. On each loop check if the character is repeated later in the string or in the test string. If so add ")" to the result string. If not add "(" to the result string.  Add the character to the test string. When the loop is done return the result string.
 */
 
-function duplicateEncode(word){
-    let testStr = '';
-    let resultStr = '';
-    word = word.toLowerCase();
-    for (let i = 0; i < word.length; i++) {
-        if (word.substring(i + 1).includes(word[i]) || testStr.includes(word[i])){
-            resultStr += ')';
-        } else {
-            resultStr += '(';
+// function duplicateEncode(word){
+//     let testStr = '';
+//     let resultStr = '';
+//     word = word.toLowerCase();
+//     for (let i = 0; i < word.length; i++) {
+//         if (word.substring(i + 1).includes(word[i]) || testStr.includes(word[i])){
+//             resultStr += ')';
+//         } else {
+//             resultStr += '(';
+//         }
+//         testStr += word[i];
+//     }
+//     return resultStr;
+// }
+
+function duplicateEncode(word) {
+    //convert string to lowercase
+    wordArr = word.toLowerCase().split('')
+    let hashmap = wordArr.reduce((map, letter)=>{
+        if (!map[letter]) {
+            map[letter] = 0
         }
-        testStr += word[i];
+        map[letter]++
+        return map
+    }, {})
+
+    let resultString = ''
+    for (letter of wordArr) {
+        resultString += hashmap[letter] > 1 ? ')' : '('
     }
-    return resultStr;
+
+    return resultString
 }
-console.log(duplicateEncode("word"));
-console.log(duplicateEncode("wwoorrdd"));
-console.log(duplicateEncode('Success'));
+console.log(duplicateEncode("word")); //'(((('
+console.log(duplicateEncode("wwoorrdd")); //'))))))))'
+console.log(duplicateEncode('Success')); //')())())'
 
 /*
   return word
