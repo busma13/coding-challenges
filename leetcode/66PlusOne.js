@@ -40,33 +40,7 @@ Constraints:
  * @param {number[]} digits
  * @return {number[]}
  */
-//  var plusOne = function(digits) {
-//     //create a 'carry' int and set it to 0
-//     let carry = 0
-//     //loop through array in reverse order
-//     for (let i = digits.length - 1; i >= 0; i--) {
-//         //add carry to current element
-//         digits[i] += carry
-//         //make carry 0
-//         carry = 0
-//         //add 1 to current element
-//         digits[i] += 1
-//         //if current element is > 9 remove the leading digit and make carry 1
-//         if (digits[i] > 9) {
-//             digits[i] %= 10
-//             carry = 1
-//         } else {
-//             return digits
-//         }
-//     }
-//     //if the loop finishes unshift 1 onto front of digits
-//     digits.unshift(1)
-
-//     return digits
-// };
-
 var plusOne = function(digits) {
-    let carry = 0
     let i = digits.length - 1
     while (i >= 0 && digits[i] === 9) {
         digits[i] = 0
