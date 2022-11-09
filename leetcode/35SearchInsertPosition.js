@@ -76,3 +76,19 @@ console.log(searchInsert([1,3,5,6], 5), 2)
 console.log(searchInsert([1,3,5,6], 7), 4)
 console.log(searchInsert([1,3,5,6], 0), 0)
 console.log(searchInsert([1,3,5,6], 2), 1)
+
+
+//better answer
+// var searchInsert = function(nums, target) {
+//     let start = 0;
+//     let end = nums.length - 1;
+    
+//     while(start < end){
+//         let mid = Math.floor((start+end)/2);
+//         if (nums[mid] === target) return mid;
+//         nums[mid] > target ? end = mid : start = mid + 1;
+//     }
+//     if (start === end){
+//         return target <= nums[start] ? start : start + 1;
+//     }
+// };
