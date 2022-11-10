@@ -20,12 +20,18 @@ Pseudo code: Loop through array a.
              Return the edited list.
 */
 
+// function arrayDiff(a, b) {
+//     return a.filter(n => !b.includes(n))
+// }
+
 function arrayDiff(a, b) {
-    return a.filter(n => !b.includes(n))
+    if (a.length === 0 || b.length === 0) return a
+    const bSet = new Set(b)
+    return a.filter(n => !bSet.has(n))
 }
 
-console.log(arrayDiff([1,2],[1]));
-console.log(arrayDiff([1,2,2,2,3],[2]));
-console.log(arrayDiff([1,2,2], []));
-console.log(arrayDiff([], [1,2]));
-console.log(arrayDiff([1,2,3], [1,2]));
+console.log(arrayDiff([1,2],[1]), [2]);
+console.log(arrayDiff([1,2,2,2,3],[2]), [1,3]);
+console.log(arrayDiff([1,2,2], []), [1,2,2]);
+console.log(arrayDiff([], [1,2]), []);
+console.log(arrayDiff([1,2,3], [1,2]), [3]);
