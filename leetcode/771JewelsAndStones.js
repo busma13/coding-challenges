@@ -39,21 +39,33 @@ Constraints:
 //   return sum;
 // };
 
-var numJewelsInStones = function (jewels, stones) {
+// var numJewelsInStones = function (jewels, stones) {
+//     const map = {};
+//     jewels.split("").forEach((jewel) => (map[jewel] = -1));
+//     stones.split("").forEach((stone) => {
+//       if (map[stone]) {
+//         map[stone] === -1 ? map[stone] = 1 : map[stone]++;
+//       }
+//     });
+//     const sum = Object.values(map).reduce((acc, c) => {
+//         if (c !== -1) acc += c;
+//         return acc;
+//     }, 0);
+//     return sum;
+//   };
+
+  var numJewelsInStones = function (jewels, stones) {
     const map = {};
-    jewels.split("").forEach((jewel) => (map[jewel] = -1));
+    let total = 0;
+    jewels.split("").forEach((jewel) => (map[jewel] = true));
     stones.split("").forEach((stone) => {
       if (map[stone]) {
-        map[stone] === -1 ? map[stone] = 1 : map[stone]++;
+        total++;
       }
     });
-    const sum = Object.values(map).reduce((acc, c) => {
-        if (c !== -1) acc += c;
-        return acc;
-    }, 0);
-    return sum;
-  };
 
+    return total;
+  };
 console.log(numJewelsInStones("aA", "aAAbbbb"), 3);
 console.log(numJewelsInStones("z", "ZZ"), 0);
 console.log(
