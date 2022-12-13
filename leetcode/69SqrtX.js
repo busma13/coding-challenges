@@ -32,15 +32,33 @@ Constraints:
  * @param {number} x
  * @return {number}
  */
- var mySqrt = function(x) {
-    if (x === 0) return 0
-    let i = 1
-    while ( i**2 <= x) {
-        i++
+//  var mySqrt = function(x) {
+//     if (x === 0) return 0
+//     let i = 1
+//     while ( i**2 <= x) {
+//         i++
+//     }
+//     return i - 1
+// };
+
+var mySqrt = function(x) {
+    if (x == 1) return 1;
+    let l = 0;
+    let r = x;
+    while (l < r - 1) {
+        m = Math.floor((l + r)/2);
+        if (m**2 === x) return m;
+        if (m**2 < x) l = m;
+        if (m**2 > x) r = m;
+        if (l === r) return l;
     }
-    return i - 1
+    return l;
 };
 
+console.log(mySqrt(0), 0)
+console.log(mySqrt(1), 1)
+console.log(mySqrt(2), 1)
+console.log(mySqrt(3), 1)
 console.log(mySqrt(4), 2)
 console.log(mySqrt(8), 2)
 console.log(mySqrt(15), 3)
