@@ -39,22 +39,12 @@ function phoneWords(stringOfNums) {
             msg += letterList[stringOfNums[i]][count];
             count = 0;
         } else {
-            if (stringOfNums[i] === '7' || stringOfNums[i] === '9') {
-                if (count === 3) {
-                    msg += letterList[stringOfNums[i]][count];
-                    count = 0;
-                } else {
-                    count++;
-                    continue;
-                }
+            if (count === letterList[stringOfNums[i]].length - 1) {
+                msg += letterList[stringOfNums[i]][count];
+                count = 0;
             } else {
-                if (count === 2) {
-                    msg += letterList[stringOfNums[i]][count];
-                    count = 0;
-                } else {
-                    count++;
-                    continue;
-                }
+                count++;
+                continue;
             }
         }
     }
