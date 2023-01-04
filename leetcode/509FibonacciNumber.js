@@ -35,6 +35,8 @@ Constraints:
  * @param {number} n
  * @return {number}
  */
+
+// For Loop
 var fib = function(n) {
     let fibs = [0,1]
     for (let i = 2; i <= n; i++){
@@ -43,7 +45,19 @@ var fib = function(n) {
     return fibs[n];
 };
 
+// Recursion
+var fibRecursive = function(n) {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    return fib(n-1) + fib(n-2)
+}
+
 console.log(fib(2), 1)
 console.log(fib(3), 2)
 console.log(fib(4), 3)
 console.log(fib(10), 55)
+
+console.log(fibRecursive(2), 1)
+console.log(fibRecursive(3), 2)
+console.log(fibRecursive(4), 3)
+console.log(fibRecursive(10), 55)
