@@ -38,7 +38,7 @@ Constraints:
 
 // For Loop
 var fib = function(n) {
-    let fibs = [0,1]
+    let fibs = [0,1];
     for (let i = 2; i <= n; i++){
         fibs[i] = fibs[i-1] + fibs[i-2];
     }
@@ -49,7 +49,14 @@ var fib = function(n) {
 var fibRecursive = function(n) {
     if (n === 0) return 0;
     if (n === 1) return 1;
-    return fib(n-1) + fib(n-2)
+    return fibRecursive(n-1) + fibRecursive(n-2);
+}
+
+var fibMemo = function(n, memo=[]) {
+    if (memo[n]) return memo[n];
+    if (n === 0 || n === 1) return n;
+    memo[n] = fibMemo(n-1, memo) + fibMemo(n-2, memo);
+    return memo[n];
 }
 
 console.log(fib(2), 1)
@@ -61,3 +68,8 @@ console.log(fibRecursive(2), 1)
 console.log(fibRecursive(3), 2)
 console.log(fibRecursive(4), 3)
 console.log(fibRecursive(10), 55)
+
+console.log(fibMemo(2), 1)
+console.log(fibMemo(3), 2)
+console.log(fibMemo(4), 3)
+console.log(fibMemo(10), 55)
