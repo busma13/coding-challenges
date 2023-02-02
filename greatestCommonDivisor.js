@@ -6,17 +6,24 @@ The inputs x and y are always greater or equal to 1, so the greatest common divi
 
 */
 
-function mygcd(x,y){
-    let greatest = 1;
-    const smaller = Math.min(x,y);
-    const larger = Math.max(x,y);
-    for (let i = 1; i < smaller/2; i++) {
-        if (smaller % i === 0) {
-            const divisor = smaller / i;
-            if (larger % divisor === 0) return divisor;
-        }
-    }
-    return greatest;
+// function mygcd(x,y){
+//     let greatest = 1;
+//     const smaller = Math.min(x,y);
+//     const larger = Math.max(x,y);
+//     for (let i = 1; i < smaller/2; i++) {
+//         if (smaller % i === 0) {
+//             const divisor = smaller / i;
+//             if (larger % divisor === 0) return divisor;
+//         }
+//     }
+//     return greatest;
+// }
+
+// recursive method
+function mygcd(x,y) {
+    console.log(x,y)
+    if (y === 0) return x;
+    return mygcd(y, x % y);
 }
 
 console.log(mygcd(30,12),6)
