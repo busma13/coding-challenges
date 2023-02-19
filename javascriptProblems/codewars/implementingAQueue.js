@@ -22,35 +22,42 @@ As long as the tests pass, go for it!
 
 class Queue {
     constructor() {
-        this.storage = [];
-        this.itemCount = 0;
+        this.storage = {};
+        this.head = 0;
+        this.tail = 0;
     }
     enqueue(item) {
         // add item to the queue
-        this.itemCount++;
-        this.storage.push(item);
+        this.tail++;
+        this.storage[this.tail] = item;
     }
     dequeue() {
         // remove item from the front of the queue and return its value
-        if (this.itemCount > 0) {
-            this.itemCount--;
+        let retVal;
+        if (this.head < this.tail) {
+            this.head++;
+            retVal = this.storage[this.head];
+            delete this.storage[this.head];
+            
         }
-        return this.storage.shift();
+        return retVal;
     }
     size() {
         // return number of items in queue so far
-        return this.itemCount;
+        return this.tail - this.head;
     }
 }
-  
-  
-  
 
   const myQueue = new Queue();
   console.log(myQueue.size())
   console.log(myQueue.enqueue('first'))
   console.log(myQueue.enqueue('second'))
   console.log(myQueue.enqueue('third'))
+  console.log(myQueue)
   console.log(myQueue.size())
   console.log(myQueue.dequeue())
+  console.log(myQueue.dequeue())
+  console.log(myQueue.dequeue())
+  console.log(myQueue.dequeue())
   console.log(myQueue.size())
+  console.log(myQueue)
