@@ -1,3 +1,4 @@
+"use strict";
 /* 2666 Allow One Function Call
 Easy
 
@@ -37,22 +38,18 @@ Constraints:
 
 */
 function once(fn) {
-    var callCount = 0;
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
+    let callCount = 0;
+    return function (...args) {
         if (callCount === 0) {
             callCount = 1;
-            return fn.apply(void 0, args);
+            return fn(...args);
         }
         else {
             return undefined;
         }
     };
 }
-var fn1 = function (a, b, c) { return a + b + c; };
-var onceFn = once(fn1);
+let fn1 = (a, b, c) => a + b + c;
+let onceFn = once(fn1);
 console.log(onceFn(1, 2, 3)); // 6
 console.log(onceFn(2, 3, 6)); // returns undefined without calling fn

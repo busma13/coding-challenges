@@ -1,3 +1,4 @@
+"use strict";
 /* 2632. Curry
 Medium
 
@@ -57,31 +58,12 @@ Constraints:
     function parameters explicitly defined
 
 */
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 function curry(fn) {
-    return function curried() {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        return args.length >= fn.length ? fn.apply(void 0, args) : function () {
-            var nextArgs = [];
-            for (var _i = 0; _i < arguments.length; _i++) {
-                nextArgs[_i] = arguments[_i];
-            }
-            return curried.apply(void 0, __spreadArray(__spreadArray([], args, false), nextArgs, false));
-        };
+    return function curried(...args) {
+        return args.length >= fn.length ? fn(...args) : (...nextArgs) => curried(...args, ...nextArgs);
     };
 }
 ;
 function sum(a, b) { return a + b; }
-var csum = curry(sum);
+const csum = curry(sum);
 console.log(csum(1)(2)); // 3

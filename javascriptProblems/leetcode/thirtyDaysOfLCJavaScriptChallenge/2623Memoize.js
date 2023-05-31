@@ -1,3 +1,4 @@
+"use strict";
 /* 2623 Memoize
 Medium
 
@@ -70,36 +71,22 @@ Constraints:
     input function is sum, fib, or factorial
 
 */
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 function memoize(fn) {
-    var memo = {};
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        var memoKey = fn.toString().concat(__spreadArray([], args, true).join(','));
-        // Object.keys(memo).indexOf(memoKey) !== -1
+    const memo = {};
+    return function (...args) {
+        const memoKey = fn.toString().concat([...args].join(','));
         if (memoKey in memo) {
             return memo[memoKey];
         }
         else {
-            var result = fn.apply(void 0, args);
+            const result = fn(...args);
             memo[memoKey] = result;
             return result;
         }
     };
 }
-var callCount = 0;
-var memoizedFn = memoize(function (a, b) {
+let callCount = 0;
+const memoizedFn = memoize(function (a, b) {
     callCount += 1;
     return a + b;
 });
