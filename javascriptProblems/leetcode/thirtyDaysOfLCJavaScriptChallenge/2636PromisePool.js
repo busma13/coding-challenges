@@ -1,3 +1,4 @@
+"use strict";
 /* 2636. Promise Pool
 Medium
 
@@ -70,8 +71,8 @@ Constraints:
 
 */
 function promisePool(functions, n) {
-    return new Promise(function (resolve, reject) {
-        var poolSize = 0;
+    return new Promise((resolve, reject) => {
+        let poolSize = 0;
         function test() {
             if (poolSize === 0 && functions.length === 0) {
                 resolve(0);
@@ -81,9 +82,9 @@ function promisePool(functions, n) {
             console.log("poolsize in outer loop: ", poolSize);
             while (poolSize < n && functions.length > 0) {
                 console.log("poolsize in inner loop: ", poolSize);
-                var nextFn = functions.shift();
+                let nextFn = functions.shift();
                 if (nextFn)
-                    nextFn().then(function () {
+                    nextFn().then(() => {
                         console.log("hit a then()");
                         poolSize--;
                         test();
@@ -94,5 +95,5 @@ function promisePool(functions, n) {
         test();
     });
 }
-var sleep = function (t) { return new Promise(function (res) { return setTimeout(res, t); }); };
-promisePool([function () { return sleep(500); }, function () { return sleep(400); }], 1).then(console.log); // After 900ms
+const sleep = (t) => new Promise((res) => setTimeout(res, t));
+promisePool([() => sleep(500), () => sleep(400)], 1).then(console.log); // After 900ms
