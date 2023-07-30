@@ -32,3 +32,4 @@ function hIndex(citations) {
     }
     return sum;
 }
+module.exports = hIndex;

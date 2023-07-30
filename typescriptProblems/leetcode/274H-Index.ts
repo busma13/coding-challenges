@@ -33,3 +33,5 @@ function hIndex(citations: number[]): number {
   }
   return sum;
 }
+
+module.exports = hIndex;
